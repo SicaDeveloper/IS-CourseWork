@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store</title>
+    <!-- To import index.css CSS file and fonts -->
+    <link rel="stylesheet" href="../css/index.css" />
+    <style>
+      .product-container {
+        display: flex;
+        padding: 50px 100px 50px 100px;
+      }
+      .product-items {
+        display: flex;
+        flex-direction: column;
+      }
+      .product-img {
+        height: 500px;
+        width: 500px;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+  <header class="container">
+    <!-- to apply navigation style to the ul -->
+    <ul class="nav-bar-1">
+      <!-- List item to define items inside the nav bar -->
+      <li class="list-items">
+        <!-- navigation links to design multiple anchor tags at the same time -->
+        <a href="" class="nav-links"
+          ><img class="logo" src="../../Assets/Pasal.png" alt=""
+        /></a>
+      </li>
+      <li class="list-items">
+        <input
+          type="text"
+          id="search"
+          class="nav-search-bar"
+          placeholder="Search...."
+          onkeyup="search()" />
+      </li>
+      <li class="list-items">
+        <a href="" class="nav-links-Login">Login </a>
+      </li>
+    </ul>
+    <!-- 2nd nav bar to allow for navigation links to browse through the webpages -->
+    <ul class="nav-bar-2">
+      <li class="list-items nav-hover">
+        <a class="nav-links" href="../index.html">Home</a>
+      </li>
+      <div class="spacer">|</div>
+      <li class="list-items nav-hover">
+        <a class="nav-links" href="/pages/shop.html">Store</a>
+      </li>
+      <div class="spacer">|</div>
+      <li class="list-items nav-hover">
+        <a class="nav-links" href="/pages/blog.html">Blog</a>
+      </li>
+      <div class="spacer">|</div>
+      <li class="list-items nav-hover">
+        <a class="nav-links" href="../Shopping/shop.html">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAbJJREFUSEvtlr0rhVEcxz/Xy4YMysA/YENKUt4yKSwyKGXBoMxM3gazxVtGZbAZlctIJAujlAEliywinm+dW6ene+859z7HvYtfPcPzPOf8Puf3flKUSVJl4vIPLpnnbVcvA0t/SH4CpoBjMUoJFm8a2IuD+wA9kkGgO7D13xG0GXiOg23OAHASGHwATGR05ionfX8EmgLCu4BzF1j/14GFQOAboM3Wla+BtAB3gcCTwL4vWOsugY6E8DegEfgqBDwPbCQEr2brD65eXQ+8ApVFwmWlSuglvt8F1vojYLhI8CYwl22vD3gMODSb14C05yE+gKvIzT/FgqsBJUiNOcC4JzjvMh+LpWAbmAU+gSFA7c8lD9FQ0JNVfMEq/msXKfZ/JXrXxEsE1uZFQKVR5XmAYGDx6qIsb/cEB3G1zZoBVN9bwHvsEK1RSEYA9WaVYU7xjXFGgT04TgGNz4w0APdArfkwmg9eKFg13G8Uqz4rLHBvdJE4s951jVJOJE4uKZCbd4ymXVNitmLN204Tgh7j8iBgKdG4VJJd5DBGlt+aHh8sxp4J7V5WaIzdGj1XlA38C/dzQB+cS5lrAAAAAElFTkSuQmCC" />
+        </a>
+      </li>
+    </ul>
+  </header>
+  <body>
+    <div class="product-container">
+      <div class="product-items"><img class="product-img" src="" alt="" /></div>
+      <div class="product-items">
+        <h1></h1>
+        <p></p>
+      </div>
+    </div>
+  </body>
+  <footer class="footer">
+    <!-- footer-container to align the items in a flex to align content -->
+    <div class="footer-container">
+      <ul>
+        <li class="list-items"><h2 align="center">Pasal</h2></li>
+        <li class="list-items">
+          <a class="nav-links" href="">Digital Payments</a>
+        </li>
+        <li class="list-items">
+          <a class="nav-links" href="">Privacy Policy</a>
+        </li>
+        <li class="list-items">
+          <a class="nav-links" href="">Help us Improve!!</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <!-- footer-container to align the items in a flex to align content -->
+      <ul class="footer-container">
+        <!-- different class to modify the nature of icons so that it can be in one line -->
+        <h2 align="center">Contact Us</h2>
+        <div class="contacts-list">
+          <li class="list-items">
+            <a class="nav-links" href=""
+              ><img src="../../Assets/phone-solid-24.png" alt=""
+            /></a>
+          </li>
+          <li class="list-items">
+            <a class="nav-links" href=""
+              ><img src="../../Assets/meta-logo-24.png" alt=""
+            /></a>
+          </li>
+          <li class="list-items">
+            <a class="nav-links" href=""
+              ><img src="../../Assets/instagram-logo-24.png" alt=""
+            /></a>
+          </li>
+          <li class="list-items">
+            <a class="nav-links" href=""
+              ><img src="../../Assets/twitter-logo-24.png" alt=""
+            /></a>
+          </li>
+        </div>
+      </ul>
+    </div>
+    <!-- Use of footer-container and list-items -->
+    <div class="footer-container">
+      <ul>
+        <li class="list-items">
+          <h2 align="center">About Us</h2>
+        </li>
+        <li class="list-items">
+          <a class="nav-links" href="">Team Members</a>
+        </li>
+        <li class="list-items"><a class="nav-links" href="">Blog</a></li>
+        <li class="list-items"><a class="nav-links" href="">Research</a></li>
+      </ul>
+    </div>
+    <button id="scroll-button" class="scroll-bar" onclick="topFunction()">
+      <img src="../../Assets/186407_arrow_up_icon.svg" alt="" />
+    </button>
+  </footer>
+</html>

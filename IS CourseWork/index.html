@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pasal - Online Grocery Shopping</title>
+    <meta
+      name="description"
+      content="Pasal - Your one-stop destination for fresh groceries. Shop online for a wide range of fruits, vegetables, dairy products, meats, and more." />
+    <meta
+      name="keywords"
+      content="pasal, grocery, supermarket, fresh, fruits, vegetables, dairy, meats, online shopping, " />
+    <meta name="author" content="Raj Dangol,Nikesh Simkhada, Suniti malla" />
+    <!-- To import index.css CSS file and fonts -->
+    <link rel="stylesheet" href="css/index.css" />
+    <style>
+      html {
+        background-color: whitesmoke;
+      }
+      .body-container {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin: 0 0 50px 0;
+        border-radius: 3px;
+        height: 650px;
+      }
+      .fruits {
+        background-image: url(../../Assets/background-index.jpg);
+        background-repeat: none;
+        background-size: cover;
+        background-attachment: fixed;
+        object-fit: contain;
+      }
+      .fruits-title {
+        font-size: 100px;
+        color: whitesmoke;
+        -webkit-text-stroke: 1px whitesmoke;
+        text-shadow: 1px 2px black;
+      }
+      .body-container-items {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .container-item-title {
+        font-size: 50px;
+        animation: fade-in 1s;
+      }
+      .body-container {
+        color: black;
+      }
+      .inner-container {
+        background-color: white;
+        width: 80%;
+      }
+      .scroll-bar {
+        position: fixed;
+        background: transparent;
+        border: none;
+        bottom: 20px;
+        right: 15px;
+      }
+      .blog {
+        background-image: none;
+        height: fit-content;
+      }
+      .blog img {
+        border-radius: 100%;
+        border: none;
+        size-adjust: 70px;
+      }
+      .blog-arrow-button {
+        height: 600px;
+        background-color: transparent;
+        border: none;
+      }
+      .blog-arrow-button:hover {
+        background-color: #edebe4;
+      }
+      .blog-arrows {
+        padding: 40px;
+        height: 30px;
+      }
+      .blog-picture {
+        height: 320px;
+        width: 320px;
+        object-fit: cover;
+      }
+      @keyframes fade-in {
+        from {
+          scale: 0.8;
+          opacity: 0;
+        }
+        to {
+          scale: 1;
+          opacity: 1;
+        }
+      }
+      .animation {
+        animation: fade-in linear;
+        animation-timeline: view();
+        animation-range-start: cover;
+        animation-range-end: 400px;
+      }
+      .container-paragraph {
+        padding: 30px 80px 30px 80px;
+        font-size: 22px;
+      }
+      hr {
+        width: 200px;
+        background-color: black;
+        border: 1px solid black;
+      }
+      .store-body-container {
+        padding: 50px 0 50px 0;
+        width: 100%;
+        height: fit-content;
+      }
+      .store-title {
+        font-size: 50px;
+        text-align: center;
+        padding: 10px 0 10px 0;
+        margin: 10px 0 10px 0;
+        color: white;
+        text-shadow: 2px 2px black;
+      }
+      .store-items-container {
+        padding: 7px 50px 7px 50px;
+      }
+      .store-items-row {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 20px 50px 20px 50px;
+      }
+      .store-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        background-color: white;
+        min-width: 200px;
+        gap: 10px;
+        height: 350px;
+        border-radius: 5px;
+        justify-content: space-around;
+      }
+      .store-items-name {
+        font-size: 15px;
+      }
+      .store-items-price {
+        padding: 5px 0 5px 0;
+        text-align: left;
+        overflow: hidden;
+      }
+      .store-images {
+        height: 200px;
+        width: 200px;
+        object-fit: contain;
+      }
+      .cart-button {
+        width: 170px;
+        background-color: black;
+        border: 1px solid;
+        color: white;
+        max-height: 30px;
+      }
+      .cart-button:hover {
+        color: black;
+        background-color: white;
+        transition-duration: 0.3s;
+      }
+      .store-background {
+        background-image: url(../../Assets/index-store-background.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        object-fit: fill;
+        background-attachment: fixed;
+      }
+    </style>
+  </head>
+  <!-- To apply CSS to header -->
+  <header class="container">
+    <!-- to apply navigation style to the ul -->
+    <ul class="nav-bar-1">
+      <!-- List item to define items inside the nav bar -->
+      <li class="list-items">
+        <!-- navigation links to design multiple anchor tags at the same time -->
+        <a href="" class="nav-links"
+          ><img class="logo" src="../../Assets/Pasal.png" alt=""
+        /></a>
+      </li>
+      <li class="list-items">
+        <input
+          class="nav-search-bar"
+          type="text"
+          id="search"
+          placeholder="Search...." />
+      </li>
+      <li class="list-items">
+        <a href="" class="nav-links-Login">Login </a>
+      </li>
+    </ul>
+    <!-- 2nd nav bar to allow for navigation links to browse through the webpages -->
+    <ul class="nav-bar-2">
+      <li class="list-items nav-hover">
+        <a class="nav-links" href="index.html">Home</a>
+      </li>
+      <div class="spacer">|</div>
+      <li class="list-items nav-hover">
+        <a class="nav-links" href="/pages/shop.html">Store</a>
+      </li>
+      <div class="spacer">|</div>
+      <li class="list-items nav-hover">
+        <a class="nav-links" href="/pages/blog.html">Blog</a>
+      </li>
+      <div class="spacer">|</div>
+      <li class="list-items nav-hover">
+        <a class="nav-links" href="../Shopping/shop.html">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAbJJREFUSEvtlr0rhVEcxz/Xy4YMysA/YENKUt4yKSwyKGXBoMxM3gazxVtGZbAZlctIJAujlAEliywinm+dW6ene+859z7HvYtfPcPzPOf8Puf3flKUSVJl4vIPLpnnbVcvA0t/SH4CpoBjMUoJFm8a2IuD+wA9kkGgO7D13xG0GXiOg23OAHASGHwATGR05ionfX8EmgLCu4BzF1j/14GFQOAboM3Wla+BtAB3gcCTwL4vWOsugY6E8DegEfgqBDwPbCQEr2brD65eXQ+8ApVFwmWlSuglvt8F1vojYLhI8CYwl22vD3gMODSb14C05yE+gKvIzT/FgqsBJUiNOcC4JzjvMh+LpWAbmAU+gSFA7c8lD9FQ0JNVfMEq/msXKfZ/JXrXxEsE1uZFQKVR5XmAYGDx6qIsb/cEB3G1zZoBVN9bwHvsEK1RSEYA9WaVYU7xjXFGgT04TgGNz4w0APdArfkwmg9eKFg13G8Uqz4rLHBvdJE4s951jVJOJE4uKZCbd4ymXVNitmLN204Tgh7j8iBgKdG4VJJd5DBGlt+aHh8sxp4J7V5WaIzdGj1XlA38C/dzQB+cS5lrAAAAAElFTkSuQmCC" />
+        </a>
+      </li>
+    </ul>
+  </header>
+  <body>
+    <div class="body-container">
+      <div class="body-container-items">
+        <h1 class="container-item-title">Pasal</h1>
+        <hr />
+        <p class="container-paragraph">
+          Welcome to Pasal, your ultimate destination for quality groceries and
+          unmatched convenience, crafted with care by our dedicated team led by
+          Raj Dangol. Together, we've built Pasal with a shared commitment to
+          excellence and a passion for providing you with the finest ingredients
+          and household essentials. With our seamless online platform and
+          efficient delivery service, the entire Pasal team is here to ensure
+          your shopping experience is effortless and enjoyable. Join us on this
+          journey of flavor, convenience, and community at Pasal.
+        </p>
+      </div>
+      <div class="body-container-items">
+        <img
+          style="height: 500px; padding: 20px"
+          src="../../Assets/pexels-ryutaro-tsukata-5745903.jpg"
+          alt="" />
+      </div>
+    </div>
+    <div class="body-container fruits">
+      <div class="body-container-items">
+        <h2 class="fruits-title">Get the Freshest</h2>
+      </div>
+    </div>
+    <div class="store-title">Fruits and Vegetables</div>
+    <div class="store-background">
+      <div class="store-items-row">
+        <div class="store-items">
+          <img class="store-images" src="../../Assets/apple.jpg" alt="" />
+          <p class="store-items-name">Apple 1kg</p>
+          <p class="store-items-price">NRs.</p>
+          <button class="cart-button">Add to cart</button>
+        </div>
+        <div class="store-items">
+          <img class="store-images" src="../../Assets/orange.jpg" alt="" />
+          <p class="store-items-name">Orange 1kg</p>
+          <p class="store-items-price">NRs.</p>
+          <button class="cart-button">Add to cart</button>
+        </div>
+        <div class="store-items">
+          <img class="store-images" src="../../Assets/pumpkin.jpg" alt="" />
+          <p class="store-items-name">Pumpkin 1kg</p>
+          <p class="store-items-price">NRs.</p>
+          <button class="cart-button">Add to cart</button>
+        </div>
+        <div class="store-items">
+          <img class="store-images" src="../../Assets/capsicum.webp" alt="" />
+          <p class="store-items-name">Capsicum 500g</p>
+          <p class="store-items-price">NRs.</p>
+          <button class="cart-button">Add to cart</button>
+        </div>
+        <div class="store-items">
+          <img class="store-images" src="../../Assets/Cauliflower.jpg" alt="" />
+          <p class="store-items-name">Cauliflower 1kg</p>
+          <p class="store-items-price">NRs.</p>
+          <button class="cart-button">Add to cart</button>
+        </div>
+        <div class="store-items">
+          <img class="store-images" src="../../Assets/onion.jpg" alt="" />
+          <p class="store-items-name">Onion</p>
+          <p class="store-items-price">NRs.</p>
+          <button class="cart-button">Add to cart</button>
+        </div>
+        <div class="store-items">
+          <p>
+            <a href="../Shopping/shop.html" style="text-decoration: none"
+              >See more &rarr;</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="body-container">
+      <h2 class="container-item-title">Hear From Our Team Members</h2>
+    </div>
+    <div class="body-container blog">
+      <button class="blog-arrow-button" onclick="changeSlidesLeft()">
+        <img
+          id="leftArrow"
+          class="blog-arrows"
+          src="../../Assets/bxs-chevron-left.svg"
+          alt="" />
+      </button>
+      <div class="inner-container animation" id="blog-container">
+        <figure style="padding: 30px; margin: 20px; text-align: center">
+          <img class="blog-picture" src="../../Assets/Raj.jpg" alt="" />
+          <figcaption style="font-size: 25px">Raj Dangol</figcaption>
+        </figure>
+        <p class="container-paragraph">
+          Together, we've built Pasal with a shared commitment to excellence and
+          a passion for providing you with the finest ingredients and household
+          essentials.The entire Pasal team is here to ensure your shopping
+          experience is effortless and enjoyable. Join us on this journey of
+          flavor, convenience, and community at Pasal.
+        </p>
+      </div>
+      <div class="inner-container animation" id="blog-container2">
+        <figure style="padding: 30px; margin: 20px; text-align: center">
+          <img class="blog-picture" src="../../Assets/Sudiksha.jpg" alt="" />
+          <figcaption style="font-size: 25px">Suniti Malla</figcaption>
+        </figure>
+        <p class="container-paragraph"></p>
+      </div>
+      <div class="inner-container animation" id="blog-container3">
+        <figure style="padding: 30px; margin: 20px; text-align: center">
+          <img class="blog-picture" src="../../Assets/Nikesh.jpg" alt="" />
+          <figcaption style="font-size: 25px">Nikesh Simkhada</figcaption>
+        </figure>
+        <p class="container-paragraph">
+          Welcome to Pasal. Your daily groceries at the tip of your fingers. Get
+          the freshest. Sit back relax and receive your groceries at your door.
+          Shop with us and get the freshest groceries without any hassle quick
+          and easy with best prices.
+        </p>
+      </div>
+      <button class="blog-arrow-button" onclick="changeSlideRight()">
+        <img
+          id="rightArrow"
+          class="blog-arrows"
+          src="../../Assets/bxs-chevron-right.svg"
+          alt="" />
+      </button>
+    </div>
+  </body>
+  <!-- Defining footer class and naming it to allow for CSS changes -->
+  <footer class="footer">
+    <!-- footer-container to align the items in a flex to align content -->
+    <div class="footer-container">
+      <ul>
+        <li class="list-items"><h2 align="center">Pasal</h2></li>
+        <li class="list-items">
+          <a class="nav-links" href="">Digital Payments</a>
+        </li>
+        <li class="list-items">
+          <a class="nav-links" href="">Privacy Policy</a>
+        </li>
+        <li class="list-items">
+          <a class="nav-links" href="">Help us Improve!!</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <!-- footer-container to align the items in a flex to align content -->
+      <ul class="footer-container">
+        <!-- different class to modify the nature of icons so that it can be in one line -->
+        <h2 align="center">Contact Us</h2>
+        <div class="contacts-list">
+          <li class="list-items">
+            <a class="nav-links" href=""
+              ><img src="../../Assets/phone-solid-24.png" alt=""
+            /></a>
+          </li>
+          <li class="list-items">
+            <a class="nav-links" href=""
+              ><img src="../../Assets/meta-logo-24.png" alt=""
+            /></a>
+          </li>
+          <li class="list-items">
+            <a class="nav-links" href=""
+              ><img src="../../Assets/instagram-logo-24.png" alt=""
+            /></a>
+          </li>
+          <li class="list-items">
+            <a class="nav-links" href=""
+              ><img src="../../Assets/twitter-logo-24.png" alt=""
+            /></a>
+          </li>
+        </div>
+      </ul>
+    </div>
+    <!-- Use of footer-container and list-items -->
+    <div class="footer-container">
+      <ul>
+        <li class="list-items">
+          <h2 align="center">About Us</h2>
+        </li>
+        <li class="list-items">
+          <a class="nav-links" href="">Team Members</a>
+        </li>
+        <li class="list-items"><a class="nav-links" href="">Blog</a></li>
+        <li class="list-items"><a class="nav-links" href="">Research</a></li>
+      </ul>
+    </div>
+    <button id="scroll-button" class="scroll-bar" onclick="topFunction()">
+      <img src="../../Assets/186407_arrow_up_icon.svg" alt="" />
+    </button>
+  </footer>
+  <script src="js/home.js"></script>
+</html>

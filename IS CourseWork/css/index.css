@@ -1,0 +1,99 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+.button{
+    background:none;
+    border:transparent;
+}
+
+html{
+background-color: white;
+}
+.logo{
+    height: 70px;
+    width: 70px;
+    object-fit:cover;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+}
+.list-items{
+    list-style-type:none;
+    padding: 5px 10px 5px 10px;
+}
+.nav-links{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+.scroll-bar {
+    position: fixed;
+    background: transparent;
+    border: none;
+    bottom: 20px;
+    right: 15px;
+  }
+.nav-hover{
+    width: 250px;
+    text-align: center;
+}
+.nav-hover:hover{
+    transform: scale(1.2);
+    transition: transform .2s;
+}
+.nav-links-Login{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+.nav-search-bar{
+    width: 40em;
+    min-height: 40px;
+    border: solid 5px white;
+    border-radius: 2px;
+}
+.spacer{
+    font-size: 30px;
+    color: grey;
+}
+.nav-bar-1{
+    position: sticky;
+    display: flex;
+    background-color:  #317546;
+    justify-content: space-around;
+    padding: 0 20px 0 20px;
+    align-items: center;
+    height: 70px;
+    font-size: 20px;
+    opacity: 0.95;
+}
+.nav-bar-2{
+    display: flex;
+    width: 100%;
+    background-color: whitesmoke;
+    justify-content: space-evenly;
+    align-items: center ;
+    height: 50px;
+    position: sticky;
+    opacity: .95;
+}
+
+.footer{
+    display: flex;
+    width: 100%;
+    bottom: 0;
+    background-color: White;
+    justify-content: space-evenly;
+    align-items: baseline;
+    height: 200px;
+}
+.footer-container{
+    padding: 20px 15px 10px 20px;
+}
+.contacts-list{
+    display: flex;
+    padding: 20px 5px 5px 5px;
+}

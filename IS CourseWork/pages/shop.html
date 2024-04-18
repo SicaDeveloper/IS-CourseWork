@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store</title>
+    <!-- To import index.css CSS file and fonts -->
+    <link rel="stylesheet" href="../css/index.css" />
+    <style>
+      html {
+        background-image: url(../../Assets/background-index-image.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        object-fit: fill;
+        background-attachment: fixed;
+      }
+      .store-body-container {
+        padding: 0 0 50px 0;
+        width: 100%;
+        height: fit-content;
+      }
+      .store-title {
+        font-size: 50px;
+        text-align: center;
+        padding: 10px 0 10px 0;
+        margin: 10px 0 10px 0;
+        color: whitesmoke;
+        font-weight: 400px;
+        text-shadow: 2px 2px black;
+      }
+      .store-items-container {
+        padding: 7px 50px 7px 50px;
+      }
+      .store-items-row {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        overflow-x: auto;
+        padding: 0 60px 0 60px;
+      }
+      .store-items-product-row {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        flex-wrap: wrap;
+        padding: 0 50px 0 50px;
+        overflow-y: scroll;
+        max-height: 50em ;
+      }
+      .store-items-product-row::-webkit-scrollbar{
+        background-color: transparent;
+      }
+      .store-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        background-color: white;
+        max-width: 200px;
+        min-width: 200px;
+        gap: 10px;
+        height: 350px;
+        border-radius: 5px;
+        justify-content: space-around;
+      }
+      .store-items a {
+        color: black;
+        text-decoration: none;
+      }
+      .store-items-name {
+        font-size: 15px;
+      }
+      .store-items-price {
+        padding: 5px 0 5px 0;
+        text-align: left;
+        overflow: hidden;
+      }
+      .store-images {
+        height: 200px;
+        width: 200px;
+        object-fit: contain;
+      }
+      .cart-button {
+        width: 170px;
+        background-color: black;
+        border: 1px solid;
+        color: white;
+        max-height: 30px;
+      }
+      .cart-button:hover {
+        color: black;
+        background-color: white;
+        transition: transform 0.2s;
+      }
+      .sale {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+        background-color: white;
+        font-size: 40px;
+      }
+      .store-items-row::-webkit-scrollbar {
+        width: 10px;
+      }
+      .store-items-row::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+      }
+      .store-items-row::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #317546;
+        border: 1px solid lightgray;
+      }
+      .categories-container {
+        padding: 30px 10px 0 10px;
+      }
+      .store-nav-bar {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 0 30px 0 30px;
+      }
+      .categories-button {
+        width: 280px;
+        height: 50px;
+        background-color: white;
+        border: none;
+      }
+      .categories-background {
+        height: 500px;
+        padding: 20px 0 10px 0;
+      }
+      .categories-button:hover {
+        background-color: grey;
+        color: white;
+      }
+      .category-items {
+        width: 250px;
+        height: 50px;
+        background-color: white;
+        text-align: center;
+      }
+      .category-items a {
+        color: black;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <!-- To apply CSS to header -->
+  <header class="container">
+    <!-- to apply navigation style to the ul -->
+    <ul class="nav-bar-1">
+      <!-- List item to define items inside the nav bar -->
+      <li class="list-items">
+        <!-- navigation links to design multiple anchor tags at the same time -->
+        <a href="" class="nav-links"
+          ><img class="logo" src="../../Assets/Pasal.png" alt=""
+        /></a>
+      </li>
+      <li class="list-items">
+        <input
+          type="text"
+          id="search"
+          class="nav-search-bar"
+          placeholder="Search...."
+          onkeyup="search()" />
+      </li>
+      <li class="list-items">
+        <a href="" class="nav-links-Login">Login </a>
+      </li>
+    </ul>
+    <!-- 2nd nav bar to allow for navigation links to browse through the webpages -->
+    <ul class="nav-bar-2">
+      <li class="list-items nav-hover">
+        <a class="nav-links" href="../index.html">Home</a>
+      </li>
+      <div class="spacer">|</div>
+      <li class="list-items nav-hover">
+        <a class="nav-links" href="/pages/shop.html">Store</a>
+      </li>
+      <div class="spacer">|</div>
+      <li class="list-items nav-hover">
+        <a class="nav-links" href="/pages/blog.html">Blog</a>
+      </li>
+      <div class="spacer">|</div>
+      <li class="list-items nav-hover">
+        <a class="nav-links" href="../Shopping/shop.html">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAbJJREFUSEvtlr0rhVEcxz/Xy4YMysA/YENKUt4yKSwyKGXBoMxM3gazxVtGZbAZlctIJAujlAEliywinm+dW6ene+859z7HvYtfPcPzPOf8Puf3flKUSVJl4vIPLpnnbVcvA0t/SH4CpoBjMUoJFm8a2IuD+wA9kkGgO7D13xG0GXiOg23OAHASGHwATGR05ionfX8EmgLCu4BzF1j/14GFQOAboM3Wla+BtAB3gcCTwL4vWOsugY6E8DegEfgqBDwPbCQEr2brD65eXQ+8ApVFwmWlSuglvt8F1vojYLhI8CYwl22vD3gMODSb14C05yE+gKvIzT/FgqsBJUiNOcC4JzjvMh+LpWAbmAU+gSFA7c8lD9FQ0JNVfMEq/msXKfZ/JXrXxEsE1uZFQKVR5XmAYGDx6qIsb/cEB3G1zZoBVN9bwHvsEK1RSEYA9WaVYU7xjXFGgT04TgGNz4w0APdArfkwmg9eKFg13G8Uqz4rLHBvdJE4s951jVJOJE4uKZCbd4ymXVNitmLN204Tgh7j8iBgKdG4VJJd5DBGlt+aHh8sxp4J7V5WaIzdGj1XlA38C/dzQB+cS5lrAAAAAElFTkSuQmCC" />
+        </a>
+      </li>
+    </ul>
+  </header>
+  <body>
+    <div class="store-body-container">
+      <div class="sale">
+        <h1>Sale ends in</h1>
+        <span id="timer"></span>
+      </div>
+      <h2 class="store-title">All Products</h2>
+      <div class="store-items-container">
+        <div class="store-items-product-row">
+          <div class="store-items">
+            <img
+              class="store-images"
+              src="../../Assets/Pringles Original Potato Chips.jpeg"
+              alt="" />
+            <a href=""
+              ><p class="store-items-name">Pringles Original Potato Chips</p></a
+            >
+            <p class="store-items-price">NRs. <strike>200</strike> 160</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img
+              class="store-images"
+              src="../../Assets/Nongshim Shin Noodles.jpg"
+              alt="" />
+            <a href=""><p class="store-items-name">Nongshim Shin Noodles</p></a>
+            <p class="store-items-price">NRs. <strike>300</strike> 240</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img
+              class="store-images"
+              src="../../Assets/Nongshim Soon Veggie Cup Noodle.jpg"
+              alt="" />
+            <a href=""
+              ><p class="store-items-name">
+                Nongshim Soon Veggie Cup Noodles
+              </p></a
+            >
+            <p class="store-items-price">NRs. <strike>400</strike> 300</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img
+              class="store-images"
+              src="../../Assets/Lays American Style Cream and Onion.jpg"
+              alt="" />
+            <a href=""
+              ><p class="store-items-name">
+                Lays American Style Cream and Onion
+              </p></a
+            >
+            <p class="store-items-price">NRs. <strike>100</strike> 50</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img
+              class="store-images"
+              src="../../Assets/Runiu Cow Candy Gai Chocolate Milk Candy.jpg"
+              alt="" />
+            <a href=""
+              ><p class="store-items-name">
+                Runiu Cow Candy Milk Soft Candy
+              </p></a
+            >
+            <p class="store-items-price">NRs. <strike>420</strike> 350</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img
+              class="store-images"
+              src="../../Assets/Kelloggs Chocos.jpg"
+              alt="" />
+            <a href=""><p class="store-items-name">Kelloggs Chocos</p></a>
+            <p class="store-items-price">NRs. <strike>820</strike> 700</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img
+              class="store-images"
+              src="../../Assets/Cornflakes.jpg"
+              alt="" />
+            <a href=""
+              ><p class="store-items-name">
+                Bagrry's CornFlakes Original 880gm
+              </p></a
+            >
+            <p class="store-items-price">NRs. <strike>570</strike> 500</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img
+              class="store-images"
+              src="../../Assets/Druk Chily Sauce.jpg"
+              alt="" />
+            <a href=""
+              ><p class="store-items-name">Druk Green Chilly Sauce</p></a
+            >
+            <p class="store-items-price">NRs. <strike>80</strike> 68</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img class="store-images" src="../../Assets/apple.jpg" alt="" />
+            <a href=""><p class="store-items-name">Apple 1kg</p></a>
+            <p class="store-items-price">NRs. <strike>350</strike> 290</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img class="store-images" src="../../Assets/orange.jpg" alt="" />
+            <a href=""><p class="store-items-name">Orange 1kg</p></a>
+            <p class="store-items-price">NRs. <strike>400</strike> 320</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img class="store-images" src="../../Assets/pumpkin.jpg" alt="" />
+            <a href=""><p class="store-items-name">Pumpkin 1kg</p></a>
+            <p class="store-items-price">NRs. <strike>250</strike> 200</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img class="store-images" src="../../Assets/capsicum.webp" alt="" />
+            <a href=""><p class="store-items-name">Capsicum 500g</p></a>
+            <p class="store-items-price">NRs. <strike>220</strike> 190</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img
+              class="store-images"
+              src="../../Assets/Cauliflower.jpg"
+              alt="" />
+            <a href=""><p class="store-items-name">Cauliflower 1kg</p></a>
+            <p class="store-items-price">NRs. <strike>250</strike> 200</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img class="store-images" src="../../Assets/onion.jpg" alt="" />
+            <a href=""><p class="store-items-name">Onion</p></a>
+            <p class="store-items-price">NRs. <strike>250</strike> 220</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img class="store-images" src="../../Assets/potato.jpg" />
+            <a href=""><p class="store-items-name">Potato 1kg</p></a>
+            <p class="store-items-price">NRs. <strike>200</strike> 160</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img class="store-images" src="../../Assets/apple.jpg" alt="" />
+            <a href=""><p class="store-items-name">Apple 1kg</p></a>
+            <p class="store-items-price">NRs. <strike>350</strike> 290</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img class="store-images" src="../../Assets/orange.jpg" alt="" />
+            <a href=""><p class="store-items-name">Orange 1kg</p></a>
+            <p class="store-items-price">NRs. <strike>400</strike> 320</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img class="store-images" src="../../Assets/pumpkin.jpg" alt="" />
+            <a href=""><p class="store-items-name">Pumpkin 1kg</p></a>
+            <p class="store-items-price">NRs. <strike>250</strike> 190</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img class="store-images" src="../../Assets/capsicum.webp" alt="" />
+            <a href=""><p class="store-items-name">Capsicum 500g</p></a>
+            <p class="store-items-price">NRs. <strike>220</strike></p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img
+              class="store-images"
+              src="../../Assets/Cauliflower.jpg"
+              alt="" />
+            <a href=""><p class="store-items-name">Cauliflower 1kg</p></a>
+            <p class="store-items-price">NRs. <strike>200</strike> 180</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img class="store-images" src="../../Assets/onion.jpg" alt="" />
+            <a href=""><p class="store-items-name">Onion</p></a>
+            <p class="store-items-price">NRs. <strike>240</strike> 220</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img class="store-images" src="../../Assets/potato.jpg" />
+            <a href=""><p class="store-items-name">Potato 1kg</p></a>
+            <p class="store-items-price">NRs. <strike>200</strike> 180</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img class="store-images" src="../Assets/ketchup.png" alt="" />
+            <a href=""><p class="store-items-name">Druk Ketchup 1kg</p></a>
+            <p class="store-items-price">NRs. <strike>250</strike> 225</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img
+              class="store-images"
+              src="../../Assets/Druk Chily Sauce.jpg"
+              alt="" />
+            <a href=""
+              ><p class="store-items-name">Druk Green Chilly Sauce</p></a
+            >
+            <p class="store-items-price">NRs. <strike>80</strike> 68</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img class="store-images" src="../Assets/soy sauce.jpg" alt="" />
+            <a href=""><p class="store-items-name">Druk Soy sauce 250ml</p></a>
+            <p class="store-items-price">NRs. <strike>100</strike> 85</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img
+              class="store-images"
+              src="../Assets/Cream Cheese.jpeg"
+              alt="" />
+            <a href=""><p class="store-items-name">Cream Cheese</p></a>
+            <p class="store-items-price">NRs. <strike>200</strike> 160</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          <div class="store-items">
+            <img class="store-images" src="../Assets/teriyaki.jpg" alt="" />
+            <a href=""><p class="store-items-name">Teriyaki Sauce</p></a>
+            <p class="store-items-price">NRs. <strike>255</strike> 225</p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../../Assets/Pringles Original Potato Chips.jpeg"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">
+                  Pringles Original Potato Chips
+                </p></a
+              >
+              <p class="store-items-price">NRs. <strike>200</strike> 160</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../../Assets/Nongshim Shin Noodles.jpg"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">Nongshim Shin Noodles</p></a
+              >
+              <p class="store-items-price">NRs. <strike>300</strike> 240</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../../Assets/Nongshim Soon Veggie Cup Noodle.jpg"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">
+                  Nongshim Soon Veggie Cup Noodles
+                </p></a
+              >
+              <p class="store-items-price">NRs. <strike>400</strike> 300</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../../Assets/Lays American Style Cream and Onion.jpg"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">
+                  Lays American Style Cream and Onion
+                </p></a
+              >
+              <p class="store-items-price">NRs. <strike>100</strike> 50</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../../Assets/Runiu Cow Candy Gai Chocolate Milk Candy.jpg"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">
+                  Runiu Cow Candy Milk Soft Candy
+                </p></a
+              >
+              <p class="store-items-price">NRs. <strike>420</strike> 350</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../../Assets/Kelloggs Chocos.jpg"
+                alt="" />
+              <a href=""><p class="store-items-name">Kelloggs Chocos</p></a>
+              <p class="store-items-price">NRs. <strike>820</strike> 700</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../../Assets/Cornflakes.jpg"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">
+                  Bagrry's CornFlakes Original 880gm
+                </p></a
+              >
+              <p class="store-items-price">NRs. <strike>570</strike> 500</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img class="store-images" src="../Assets/buff.jpg" alt="" />
+              <a href=""><p class="store-items-name">Buff Meat 500gm</p></a>
+              <p class="store-items-price">NRs.<strike>500</strike> 300</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../Assets/buff sausage.jpg"
+                alt="" />
+              <a href=""><p class="store-items-name">Buff Sausage</p></a>
+              <p class="store-items-price">NRs. <strike>370</strike> 290</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../Assets/buff salami.jpg"
+                alt="" />
+              <a href=""><p class="store-items-name">Buff Salami 500g</p></a>
+              <p class="store-items-price">NRs. <strike>650</strike> 500</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img class="store-images" src="../Assets/Chicken.webp" alt="" />
+              <a href=""><p class="store-items-name">Chicken(Whole)</p></a>
+              <p class="store-items-price">NRs. <strike>400</strike> 388</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../Assets/Chicken Popcorn.webp"
+                alt="" />
+              <a href=""><p class="store-items-name">Chicken Popcorn 1kg</p></a>
+              <p class="store-items-price">NRs. <strike>1000</strike> 900</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../Assets/Chicken Mince.webp"
+                alt="" />
+              <a href=""><p class="store-items-name">Chicken Mince 500kg</p></a>
+              <p class="store-items-price">NRs. <strike>380</strike> 350</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../Assets/Chicken Drumsticks.webp"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">Chicken Drumsticks 500mg</p></a
+              >
+              <p class="store-items-price">NRs. <strike>500</strike> 460</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../Assets/Chicken Boneless.webp"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">Chicken Boneless 500mg</p></a
+              >
+              <p class="store-items-price">NRs. <strike>600</strike> 380</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../Assets/amul butter 500gm.jpg"
+                alt="" />
+              <a href=""><p class="store-items-name">Amul Butter</p></a>
+              <p class="store-items-price">NRs. <strike>250</strike> 160</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img class="store-images" src="../Assets/paneer.jpg" alt="" />
+              <a href=""><p class="store-items-name">Paneer 250g</p></a>
+              <p class="store-items-price">NRs. <strike>200</strike> 180</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../Assets/Ben nevis icecream american nuts.jpg"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">Ben nevis icecream 450g</p></a
+              >
+              <p class="store-items-price">NRs. <strike>320</strike> 280</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img class="store-images" src="../Assets/dahi ddc.jpg" alt="" />
+              <a href=""><p class="store-items-name">Dahi 500g</p></a>
+              <p class="store-items-price">NRs. <strike>150</strike> 120</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../Assets/kanchan cheese.jpg"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">Kanchan Cheese 500gm</p></a
+              >
+              <p class="store-items-price">NRs. <strike>655</strike> 600</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img class="store-images" src="../Assets/juju dhau.jpg" alt="" />
+              <a href=""><p class="store-items-name">Juju dhau 500mg</p></a>
+              <p class="store-items-price">NRs. <strike>250</strike> 200</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="categories-container">
+        <div class="store-title">Categories</div>
+        <div class="store-nav-bar">
+          <table>
+            <tr>
+              <td class="category-items">
+                <a href="#fruitsAndVeggies">Fruits And Vegetables</a>
+              </td>
+              <td class="category-items"><a href="#dairy">Dairy</a></td>
+              <td class="category-items"><a href="#meat">Meat</a></td>
+              <td class="category-items"><a href="#junkFood">Junk Food</a></td>
+              <td class="category-items">
+                <a href="#condimentsAndSpices">Condiments And Spices</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="store-title">Fruits and Vegetables</div>
+        <div
+          class="store-items-row categories-background"
+          id="fruitsAndVeggies">
+          <div class="store-items-row">
+            <div class="store-items">
+              <img class="store-images" src="../../Assets/apple.jpg" alt="" />
+              <a href=""><p class="store-items-name">Apple 1kg</p></a>
+              <p class="store-items-price">NRs. <strike>350</strike> 290</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img class="store-images" src="../../Assets/orange.jpg" alt="" />
+              <a href=""><p class="store-items-name">Orange 1kg</p></a>
+              <p class="store-items-price">NRs. <strike>400</strike> 320</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img class="store-images" src="../../Assets/pumpkin.jpg" alt="" />
+              <a href=""><p class="store-items-name">Pumpkin 1kg</p></a>
+              <p class="store-items-price">NRs. <strike>250</strike> 190</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../../Assets/capsicum.webp"
+                alt="" />
+              <a href=""><p class="store-items-name">Capsicum 500g</p></a>
+              <p class="store-items-price">NRs. <strike>220</strike></p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../../Assets/Cauliflower.jpg"
+                alt="" />
+              <a href=""><p class="store-items-name">Cauliflower 1kg</p></a>
+              <p class="store-items-price">NRs. <strike>200</strike> 180</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img class="store-images" src="../../Assets/onion.jpg" alt="" />
+              <a href=""><p class="store-items-name">Onion</p></a>
+              <p class="store-items-price">NRs. <strike>240</strike> 220</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img class="store-images" src="../../Assets/potato.jpg" />
+              <a href=""><p class="store-items-name">Potato 1kg</p></a>
+              <p class="store-items-price">NRs. <strike>200</strike> 180</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="store-title">Dairy</div>
+        <div class="store-items-row categories-background" id="dairy">
+          <div class="store-items-row">
+            <div class="store-items">
+              <img class="store-images" src="../Assets/milk.jpg" alt="" />
+              <a href=""><p class="store-items-name">Milk 500ml</p></a>
+              <p class="store-items-price">NRs. <strike>120</strike> 70</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../Assets/amul butter 500gm.jpg"
+                alt="" />
+              <a href=""><p class="store-items-name">Amul Butter</p></a>
+              <p class="store-items-price">NRs. <strike>250</strike> 160</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img class="store-images" src="../Assets/paneer.jpg" alt="" />
+              <a href=""><p class="store-items-name">Paneer 250g</p></a>
+              <p class="store-items-price">NRs. <strike>200</strike> 180</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../Assets/Ben nevis icecream american nuts.jpg"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">Ben nevis icecream 450g</p></a
+              >
+              <p class="store-items-price">NRs. <strike>320</strike> 280</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img class="store-images" src="../Assets/dahi ddc.jpg" alt="" />
+              <a href=""><p class="store-items-name">Dahi 500g</p></a>
+              <p class="store-items-price">NRs. <strike>150</strike> 120</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../Assets/kanchan cheese.jpg"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">Kanchan Cheese 500gm</p></a
+              >
+              <p class="store-items-price">NRs. <strike>655</strike> 600</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img class="store-images" src="../Assets/juju dhau.jpg" alt="" />
+              <a href=""><p class="store-items-name">Juju dhau 500mg</p></a>
+              <p class="store-items-price">NRs. <strike>250</strike> 200</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="store-title">Meat Products</div>
+        <div class="store-items-row categories-background" id="meat">
+          <div class="store-items-row">
+            <div class="store-items">
+              <img class="store-images" src="../Assets/buff.jpg" alt="" />
+              <a href=""><p class="store-items-name">Buff Meat 500gm</p></a>
+              <p class="store-items-price">NRs.<strike>500</strike> 300</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../Assets/buff sausage.jpg"
+                alt="" />
+              <a href=""><p class="store-items-name">Buff Sausage</p></a>
+              <p class="store-items-price">NRs. <strike>370</strike> 290</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../Assets/buff salami.jpg"
+                alt="" />
+              <a href=""><p class="store-items-name">Buff Salami 500g</p></a>
+              <p class="store-items-price">NRs. <strike>650</strike> 500</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img class="store-images" src="../Assets/Chicken.webp" alt="" />
+              <a href=""><p class="store-items-name">Chicken(Whole)</p></a>
+              <p class="store-items-price">NRs. <strike>400</strike> 388</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../Assets/Chicken Popcorn.webp"
+                alt="" />
+              <a href=""><p class="store-items-name">Chicken Popcorn 1kg</p></a>
+              <p class="store-items-price">NRs. <strike>1000</strike> 900</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../Assets/Chicken Mince.webp"
+                alt="" />
+              <a href=""><p class="store-items-name">Chicken Mince 500kg</p></a>
+              <p class="store-items-price">NRs. <strike>380</strike> 350</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../Assets/Chicken Drumsticks.webp"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">Chicken Drumsticks 500mg</p></a
+              >
+              <p class="store-items-price">NRs. <strike>500</strike> 460</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../Assets/Chicken Boneless.webp"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">Chicken Boneless 500mg</p></a
+              >
+              <p class="store-items-price">NRs. <strike>600</strike> 380</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="store-title">Junk Food</div>
+        <div class="store-items-row categories-background" id="junkFood">
+          <div class="store-items-row">
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../../Assets/Pringles Original Potato Chips.jpeg"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">
+                  Pringles Original Potato Chips
+                </p></a
+              >
+              <p class="store-items-price">NRs. <strike>200</strike> 160</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../../Assets/Nongshim Shin Noodles.jpg"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">Nongshim Shin Noodles</p></a
+              >
+              <p class="store-items-price">NRs. <strike>300</strike> 240</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../../Assets/Nongshim Soon Veggie Cup Noodle.jpg"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">
+                  Nongshim Soon Veggie Cup Noodles
+                </p></a
+              >
+              <p class="store-items-price">NRs. <strike>400</strike> 300</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../../Assets/Lays American Style Cream and Onion.jpg"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">
+                  Lays American Style Cream and Onion
+                </p></a
+              >
+              <p class="store-items-price">NRs. <strike>100</strike> 50</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../../Assets/Runiu Cow Candy Gai Chocolate Milk Candy.jpg"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">
+                  Runiu Cow Candy Milk Soft Candy
+                </p></a
+              >
+              <p class="store-items-price">NRs. <strike>420</strike> 350</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../../Assets/Kelloggs Chocos.jpg"
+                alt="" />
+              <a href=""><p class="store-items-name">Kelloggs Chocos</p></a>
+              <p class="store-items-price">NRs. <strike>820</strike> 700</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../../Assets/Cornflakes.jpg"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">
+                  Bagrry's CornFlakes Original 880gm
+                </p></a
+              >
+              <p class="store-items-price">NRs. <strike>570</strike> 500</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="store-title">Condiments and Spices</div>
+        <div
+          class="store-items-row categories-background"
+          id="condimentsAndSpices">
+          <div class="store-items-row">
+            <div class="store-items">
+              <img class="store-images" src="../Assets/ketchup.png" alt="" />
+              <a href=""><p class="store-items-name">Druk Ketchup 1kg</p></a>
+              <p class="store-items-price">NRs. <strike>250</strike> 225</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../../Assets/Druk Chily Sauce.jpg"
+                alt="" />
+              <a href=""
+                ><p class="store-items-name">Druk Green Chilly Sauce</p></a
+              >
+              <p class="store-items-price">NRs. <strike>80</strike> 68</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img class="store-images" src="../Assets/soy sauce.jpg" alt="" />
+              <a href=""
+                ><p class="store-items-name">Druk Soy sauce 250ml</p></a
+              >
+              <p class="store-items-price">NRs. <strike>100</strike> 85</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img
+                class="store-images"
+                src="../Assets/Cream Cheese.jpeg"
+                alt="" />
+              <a href=""><p class="store-items-name">Cream Cheese</p></a>
+              <p class="store-items-price">NRs. <strike>200</strike> 160</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+            <div class="store-items">
+              <img class="store-images" src="../Assets/teriyaki.jpg" alt="" />
+              <a href=""><p class="store-items-name">Teriyaki Sauce</p></a>
+              <p class="store-items-price">NRs. <strike>255</strike> 225</p>
+              <button class="cart-button">Add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <!-- Defining footer class and naming it to allow for CSS changes -->
+  <footer class="footer">
+    <!-- footer-container to align the items in a flex to align content -->
+    <div class="footer-container">
+      <ul>
+        <li class="list-items"><h2 align="center">Pasal</h2></li>
+        <li class="list-items">
+          <a class="nav-links" href="">Digital Payments</a>
+        </li>
+        <li class="list-items">
+          <a class="nav-links" href="">Privacy Policy</a>
+        </li>
+        <li class="list-items">
+          <a class="nav-links" href="">Help us Improve!!</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <!-- footer-container to align the items in a flex to align content -->
+      <ul class="footer-container">
+        <!-- different class to modify the nature of icons so that it can be in one line -->
+        <h2 align="center">Contact Us</h2>
+        <div class="contacts-list">
+          <li class="list-items">
+            <a class="nav-links" href=""
+              ><img src="../../Assets/phone-solid-24.png" alt=""
+            /></a>
+          </li>
+          <li class="list-items">
+            <a class="nav-links" href=""
+              ><img src="../../Assets/meta-logo-24.png" alt=""
+            /></a>
+          </li>
+          <li class="list-items">
+            <a class="nav-links" href=""
+              ><img src="../../Assets/instagram-logo-24.png" alt=""
+            /></a>
+          </li>
+          <li class="list-items">
+            <a class="nav-links" href=""
+              ><img src="../../Assets/twitter-logo-24.png" alt=""
+            /></a>
+          </li>
+        </div>
+      </ul>
+    </div>
+    <!-- Use of footer-container and list-items -->
+    <div class="footer-container">
+      <ul>
+        <li class="list-items">
+          <h2 align="center">About Us</h2>
+        </li>
+        <li class="list-items">
+          <a class="nav-links" href="">Team Members</a>
+        </li>
+        <li class="list-items"><a class="nav-links" href="">Blog</a></li>
+        <li class="list-items"><a class="nav-links" href="">Research</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="/js/shop.js"></script>
+</html>
+<!--        
+  This is for adding new items to the website  
+            <div class="store-items">
+            <img
+              class="store-images"
+              src=""
+              alt="" />
+            <a href=""><p class="store-items-name"></p></a>
+            <p class="store-items-price">NRs. <strike></strike> </p>
+            <button class="cart-button">Add to cart</button>
+          </div>
+          Runiu Cow Candy Gai Chocolate Milk Soft Candy 350Gm Original Ru Niu Snack
+        -->

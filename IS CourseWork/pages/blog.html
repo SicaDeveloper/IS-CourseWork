@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+    <link rel="stylesheet" href="../css/index.css " />
+    <style>
+      .cart-button {
+        width: 170px;
+        background-color: black;
+        border: 1px solid;
+        color: white;
+        max-height: 30px;
+      }
+      .store-background {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        border: 5px solid #317546;
+        width: 75%;
+        padding: 10px;
+        background-color: white;
+      }
+      .title-blog {
+        display: block;
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px;
+        text-align: center;
+        font-family: Poppins, sans-serif;
+        font-style: italic;
+        color: black;
+        font-size: 25px;
+        font-weight: lighter;
+      }
+      .blog-body {
+        display: flex;
+        width: 75%;
+        border: 2px;
+        padding: 10px;
+        margin: 10px;
+        text-align: justify;
+      }
+      .title-container {
+        display: inline-block;
+      }
+      .blog {
+        padding: 10px 0px 10px 10px;
+        letter-spacing: 5px;
+        width: 100%;
+        color: #317546;
+        font-family: Poppins, sans-serif;
+        font-weight: 100;
+        font-size: 60px;
+        font-style: italic;
+        border-right: 3px solid;
+        overflow: hidden;
+        white-space: nowrap;
+        animation: typing 2s, cursor 0.4s step-end alternate;
+      }
+      @keyframes cursor {
+        50% {
+          border-color: transparent;
+        }
+      }
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+      }
+      .img1 {
+        height: auto;
+        width: 320px;
+      }
+      html {
+        background-color: whitesmoke;
+        background-repeat: no-repeat;
+        background-size: cover;
+        object-fit: contain;
+      }
+      .footer {
+        display: flex;
+        width: 100%;
+        bottom: 0;
+        background-color: White;
+        justify-content: space-evenly;
+        align-items: baseline;
+        height: 200px;
+        margin-top: 10px;
+      }
+      .footer-container {
+        padding: 20px 15px 10px 20px;
+      }
+    </style>
+  </head>
+  <!-- To apply CSS to header -->
+  <header class="container">
+    <!-- to apply navigation style to the ul -->
+    <ul class="nav-bar-1">
+      <!-- List item to define items inside the nav bar -->
+      <li class="list-items">
+        <!-- navigation links to design multiple anchor tags at the same time -->
+        <a href="../index.html" class="nav-links"
+          ><img class="logo" src="../../Assets/Pasal.png" alt=""
+        /></a>
+      </li>
+      <li class="list-items">
+        <input
+          class="nav-search-bar"
+          type="search"
+          id="search"
+          placeholder="Search...." />
+      </li>
+      <li class="list-items">
+        <a href="" class="nav-links-Login">Login </a>
+      </li>
+    </ul>
+    <!-- 2nd nav bar to allow for navigation links to browse through the webpages -->
+    <ul class="nav-bar-2">
+      <li class="list-items nav-hover">
+        <a class="nav-links" href="/index.html">Home</a>
+      </li>
+      <div class="spacer">|</div>
+      <li class="list-items nav-hover">
+        <a class="nav-links" href="../pages/shop.html">Store</a>
+      </li>
+      <div class="spacer">|</div>
+      <li class="list-items nav-hover">
+        <a class="nav-links" href="blog.html">Blog</a>
+      </li>
+      <div class="spacer">|</div>
+      <li class="list-items nav-hover">
+        <a class="nav-links" href="">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAbJJREFUSEvtlr0rhVEcxz/Xy4YMysA/YENKUt4yKSwyKGXBoMxM3gazxVtGZbAZlctIJAujlAEliywinm+dW6ene+859z7HvYtfPcPzPOf8Puf3flKUSVJl4vIPLpnnbVcvA0t/SH4CpoBjMUoJFm8a2IuD+wA9kkGgO7D13xG0GXiOg23OAHASGHwATGR05ionfX8EmgLCu4BzF1j/14GFQOAboM3Wla+BtAB3gcCTwL4vWOsugY6E8DegEfgqBDwPbCQEr2brD65eXQ+8ApVFwmWlSuglvt8F1vojYLhI8CYwl22vD3gMODSb14C05yE+gKvIzT/FgqsBJUiNOcC4JzjvMh+LpWAbmAU+gSFA7c8lD9FQ0JNVfMEq/msXKfZ/JXrXxEsE1uZFQKVR5XmAYGDx6qIsb/cEB3G1zZoBVN9bwHvsEK1RSEYA9WaVYU7xjXFGgT04TgGNz4w0APdArfkwmg9eKFg13G8Uqz4rLHBvdJE4s951jVJOJE4uKZCbd4ymXVNitmLN204Tgh7j8iBgKdG4VJJd5DBGlt+aHh8sxp4J7V5WaIzdGj1XlA38C/dzQB+cS5lrAAAAAElFTkSuQmCC" />
+        </a>
+      </li>
+    </ul>
+  </header>
+
+  <body>
+    <div class="store-background">
+      <div class="title-container">
+        <p class="blog">Blog</p>
+      </div>
+      <div class="title-blog">
+        <h1>Technology: Enhancing Human Life</h1>
+      </div>
+      <div>
+        <img class="img1" src="../Assets/phone.jpg" alt="" />
+      </div>
+      <section class="blog-body">
+        <p>
+          Technology, a term that has revolutionized the way human live. It has
+          continuously evolved over the centuries, helping humans to change the
+          ways of living, working and interacting with each other. From using
+          stones to spark a fire to the sophisticated marvels of the digital
+          age, the journey of the development of technology reflects humanity’s
+          drastic evolution and persistent pursuit of innovation. Shopping, like
+          other activities has been digitized. People can shop via various apps
+          and website from the comfort of their home and have the items
+          delivered right to their doorstep. This process is called e commerce.
+        </p>
+      </section>
+      <div class="title-blog">
+        <h1>Historical Empathy</h1>
+      </div>
+      <div>
+        <img class="img1" src="../../Assets/history.jpg" alt="" />
+      </div>
+      <section class="blog-body">
+        <p style="font-family: Poppins, sans-serif">
+          The story of technology is as old as old as the first civilization of
+          the world. The earliest civilizations driven by their needs, created
+          simple tools from stones and bones of dead animals to aid in their
+          hunting and survival. With the arrival of agriculture, civilizations
+          developed irrigation systems and plows. The invention of round wheels
+          revolutionized transportation, invention of bulbs revolutionized the
+          way we see in dark, while the printing press democratized knowledge
+          during the Renaissance. Traditional way of selling and buying
+          groceries started with the exchange of some items with some other
+          items between people (back in the day when there was no currency).
+          After many years, when people introduced currency, people
+          exchanged/bought items with currency.
+        </p>
+      </section>
+      <div class="title-blog">
+        <h1>Continuous Improvement</h1>
+      </div>
+      <div>
+        <img class="img1" src="../../Assets/improvement.jpeg" />
+      </div>
+      <section class="blog-body">
+        <p style="font-family: Poppins, sans-serif">
+          Throughout history, technological advancement has been driven by
+          people till date. The Industrial Revolution boosted the technological
+          advancement, ultimately boosting automation mechanisms, mass
+          production and advance physics opening a door of prosperity for the
+          people. The 20th century civilization witnessed drastic improvement in
+          communication, transportation, medicines, etc. with innovations like
+          the telephone, automobiles, etc. reshaping the fabric of the society.
+          Traditional way of selling and buying is slowly being outdated.
+          Nowadays people are able to browse through various apps and websites,
+          choose their items, make online payments seamlessly and securely, and
+          have the items they ordered delivered right to their homes.
+        </p>
+      </section>
+      <div class="title-blog">
+        <h1>Positive Impacts</h1>
+      </div>
+      <div>
+        <img class="img1" src="../../Assets/positive.jpg" alt="" />
+      </div>
+      <section class="blog-body">
+        <p style="font-family: Poppins, sans-serif">
+          The impact of technology on human life has been mostly positive. It
+          has changed the way people communicate across vast distances, changed
+          the whole concept of modern medicines, improved the quality of life,
+          automation, with digitization in almost everything we can objectify.
+          From normal household activities to modern businesses, technology has
+          helped humans come a long way. It has paved a way to prove that
+          “Nothing is impossible”. In the context of shopping, technology has
+          helped businesses and consumers dramatically. While businesses are
+          able to sell their items online with deliveries, consumers are able to
+          shop with wide selection of items with easiness and save time.
+        </p>
+      </section>
+      <div class="title-blog">
+        <h1>Negative Impacts</h1>
+      </div>
+      <div>
+        <img class="img1" src="../../Assets/negative.jpg" alt="" />
+      </div>
+      <section class="blog-body">
+        <p style="font-family: Poppins, sans-serif">
+          Like a coin has both sides, similarly technology has it own pros and
+          cons. Starting with automation, it has surely created human life
+          easier. We can program machines to do the same work again and again.
+          But diving deeper, we realize that automation threatens traditional
+          roles/jobs (Job displacement). Ranging from construction labor to a
+          highly skilled software engineer, technology now threatens all kinds
+          of jobs as it is able to do all of it easily without any tiredness.
+          How rich and poor are divided, similarly technology has created a
+          division between the rich and poor once again (Digital divide).
+          Similarly, online shopping/e-commerce does have some negative impacts.
+          People losing their jobs, people having less social interaction
+          between themselves, loss of local business that do not have easy
+          access to technology, etc. People are very dependent upon technology,
+          which has also led to lethargic and laziness in people.
+        </p>
+      </section>
+      <div class="title-blog">
+        <h1>
+          How technology has affected daily life and business while selling
+          grocery items
+        </h1>
+      </div>
+      <div>
+        <img class="img1" src="../../Assets/shopping.webp" alt="" />
+      </div>
+      <section class="blog-body">
+        <p style="font-family: Poppins, sans-serif">
+          Technology has made the world a smaller place. Everything we do is at
+          our finger tips or an internet second away. The advent of online
+          shopping has redefined “convenience” for consumers allowing them to
+          browse unlimitedly and purchase grocery items and have it delivered
+          right to their door from the comfort of their couch. For business,
+          technology has made it easier to understand and analyze the market
+          along with consumer behaviors, to organize marketing campaigns, etc.
+        </p>
+      </section>
+      <div class="title-blog">
+        <h1>Conclusion</h1>
+      </div>
+      <div>
+        <img class="img1" src="../../Assets/conclusion.jpg" alt="" />
+      </div>
+      <section class="blog-body">
+        <p style="font-family: Poppins, sans-serif">
+          Technology is an unstoppable force that is not only reshaping the
+          grocery industry but almost all the industries that are co-existing in
+          the world. However, it is imperative to navigate its impacts with
+          caution, addressing issues such as job displacement, digital divide,
+          etc. By embracing technology while safeguarding ethical principles,
+          the grocery industry can guide a pursuit towards a more sustainable
+          and inclusive future.
+        </p>
+      </section>
+    </div>
+    <!-- Defining footer class and naming it to allow for CSS changes -->
+    <footer class="footer">
+      <!-- footer-container to align the items in a flex to align content -->
+      <div class="footer-container">
+        <ul>
+          <li class="list-items"><h2 align="center">Pasal</h2></li>
+          <li class="list-items">
+            <a class="nav-links" href="">Digital Payments</a>
+          </li>
+          <li class="list-items">
+            <a class="nav-links" href="">Privacy Policy</a>
+          </li>
+          <li class="list-items">
+            <a class="nav-links" href="">Help us Improve!!</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <!-- footer-container to align the items in a flex to align content -->
+        <ul class="footer-container">
+          <!-- different class to modify the nature of icons so that it can be in one line -->
+          <h2 align="center">Contact Us</h2>
+          <div class="contacts-list">
+            <li class="list-items">
+              <a class="nav-links" href=""
+                ><img src="../../Assets/phone-solid-24.png" alt=""
+              /></a>
+            </li>
+            <li class="list-items">
+              <a class="nav-links" href=""
+                ><img src="../../Assets/meta-logo-24.png" alt=""
+              /></a>
+            </li>
+            <li class="list-items">
+              <a class="nav-links" href=""
+                ><img src="../../Assets/instagram-logo-24.png" alt=""
+              /></a>
+            </li>
+            <li class="list-items">
+              <a class="nav-links" href=""
+                ><img src="../../Assets/twitter-logo-24.png" alt=""
+              /></a>
+            </li>
+          </div>
+        </ul>
+      </div>
+      <!-- Use of footer-container and list-items -->
+      <div class="footer-container">
+        <ul>
+          <li class="list-items">
+            <h2 align="center">About Us</h2>
+          </li>
+          <li class="list-items">
+            <a class="nav-links" href="">Team Members</a>
+          </li>
+          <li class="list-items"><a class="nav-links" href="">Blog</a></li>
+          <li class="list-items"><a class="nav-links" href="">Research</a></li>
+        </ul>
+      </div>
+      <button id="scroll-button" class="scroll-bar" onclick="topFunction()">
+        <img src="../../Assets/186407_arrow_up_icon.svg" alt="" />
+      </button>
+    </footer>
+    <script src="../js/home.js"></script>
+  </body>
+</html>
